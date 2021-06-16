@@ -19,7 +19,7 @@ class Test
         $this->manager = $manager;
         $this->name = $name;
         $this->number = $number;
-        $this->arrayList;
+        $this->arrayList = $arrayList;
     }
     public function log()
     {
