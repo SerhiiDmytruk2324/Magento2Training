@@ -7,9 +7,8 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template" name="training_default" template="Training_Test::default.phtml"/>
-        </referenceContainer>
-        <referenceBlock name="copyright" remove="true" />
+<!--        <referenceContainer name="content">-->
+<!--            <block class="Magento\Framework\View\Element\Template" name="training_default" template="Training_Test::default.phtml"/>-->
+<!--        </referenceContainer>-->
     </body>
 </page>
