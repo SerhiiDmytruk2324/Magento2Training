@@ -1,0 +1,22 @@
+<?php
+
+$author = $block->getAuthor();
+
+//$isEnabled = $this->helper(\Elogic\Author\Helper\Data::class)->isEnabled();
+
+$isEnabled = $block->getViewModel()->isAuthorModuleEnabled();
+
+?>
+
+<?php if($isEnabled && $author) : ?>
+<div>
+    <span><?=__("Name")?></span>
+    <span><?=$author->getFullName()?></span>
+</div>
+<div>
+    <span><?=__("Years")?></span>
+    <span><?=$author->getLivingYears()?></span>
+</div>
+
+<?php endif; ?>
+

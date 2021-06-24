@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/author/:id" method="GET">
+        <service class="Elogic\Author\Api\AuthorRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Elogic_Author::author" />
+        </resources>
+    </route>
+
+    <route url="/V1/author" method="POST">
+        <service class="Elogic\Author\Api\AuthorRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Elogic_Author::author" />
+        </resources>
+    </route>
+
+    <route url="/V1/author/:id" method="PUT">
+        <service class="Elogic\Author\Api\AuthorRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Elogic_Author::author" />
+        </resources>
+    </route>
+
+    <route url="/V1/author/:id" method="DELETE">
+        <service class="Elogic\Author\Api\AuthorRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Elogic_Author::author" />
+        </resources>
+    </route>
+
+    <!--<route url="/V1/author" method="GET">-->
+        <!--<service class="Elogic\Author\Api\AuthorRepositoryInterface" method="getAll"/>-->
+        <!--<resources>-->
+            <!--<resource ref="Elogic_Author::author" />-->
+        <!--</resources>-->
+    <!--</route>-->
+
+</routes>

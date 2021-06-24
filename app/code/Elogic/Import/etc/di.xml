@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="elogic_import" xsi:type="object">Elogic\Import\Console\Import</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Elogic\Import\Service\Rozetka" type="Elogic\Import\Service\GenericCSVImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">rozetka.csv</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Elogic\Import\Service\Comfy" type="Elogic\Import\Service\GenericCSVImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">comfy.csv</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Elogic\Import\Service\Eldorado" type="Elogic\Import\Service\GenericCSVImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">eldorado.csv</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Elogic\Import\Service\Foxtrot" type="Elogic\Import\Service\GenericCSVImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">fortrot.csv</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Elogic\Import\Service\Hotline" type="Elogic\Import\Service\GenericXMLImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">hotline.xml</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Elogic\Import\Console\Import">
+        <arguments>
+            <argument name="name" xsi:type="string">elogic:import</argument>
+        </arguments>
+    </type>
+
+    <type name="Elogic\Import\Service\Importer">
+        <arguments>
+            <argument name="importers" xsi:type="array">
+                <item name="rozetka" xsi:type="object">Elogic\Import\Service\Rozetka</item>
+                <item name="Eldorado" xsi:type="object">Elogic\Import\Service\Eldorado</item>
+                <item name="Foxtrot" xsi:type="object">Elogic\Import\Service\Foxtrot</item>
+                <item name="Comfy" xsi:type="object">Elogic\Import\Service\Comfy</item>
+                <item name="hotline" xsi:type="object">Elogic\Import\Service\Hotline</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+    <!--<type name="Elogic\Import\Service\GenericCSVImport">-->
+        <!--<arguments>-->
+            <!--<argument name="fileName" xsi:type="string">rozetka.csv</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+
+    <!--<type name="Elogic\Import\Service\GenericXMLImport">-->
+        <!--<arguments>-->
+            <!--<argument name="fileName" xsi:type="string">hotline.xml</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+
+</config>

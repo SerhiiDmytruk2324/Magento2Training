@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Elogic\Import\Service\ekatalog" type="Elogic\Import\Service\GenericXMLImport">
+        <arguments>
+            <argument name="fileName" xsi:type="string">ekatalog.xml</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Elogic\Import\Console\Import">
+        <arguments>
+            <argument name="importers" xsi:type="array">
+                <item name="ekatalog" xsi:type="object">Elogic\Import\Service\ekatalog</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

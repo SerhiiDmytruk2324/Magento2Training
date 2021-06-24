@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Elogic\Author\Api\Data\AuthorInterface"
+                type="Elogic\Author\Model\Author" />
+    <preference for="Elogic\Author\Api\AuthorRepositoryInterface"
+                type="Elogic\Author\Model\AuthorRepository" />
+
+    <preference for="Elogic\Author\Api\Data\AuthorProductInterface"
+                type="Elogic\Author\Model\AuthorProduct" />
+    <preference for="Elogic\Author\Api\AuthorProductRepositoryInterface"
+                type="Elogic\Author\Model\AuthorProductRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="author_listing_data_source" xsi:type="string">Elogic\Author\Model\ResourceModel\Author\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Elogic\Author\Model\ResourceModel\Author\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">author</argument>
+            <argument name="eventPrefix" xsi:type="string">author_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">author_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Elogic\Author\Model\ResourceModel\Author</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin name="ProductExtensionAttributeOperations" type="Elogic\Author\Plugin\ProductAuthorLoad"/>
+    </type>
+
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="ProductAuthorExtensionAttributes" type="Elogic\Author\Plugin\ProductRepositoryExtension" />
+    </type>
+
+
+</config>

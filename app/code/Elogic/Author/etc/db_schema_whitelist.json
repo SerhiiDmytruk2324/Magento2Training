@@ -1,0 +1,14 @@
+{
+    "author": {
+        "column": {
+            "author_id": true,
+            "full_name": true,
+            "living_years": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

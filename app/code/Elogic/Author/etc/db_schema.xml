@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="author" resource="default" engine="innodb" comment="Elogic Author">
+
+        <column xsi:type="smallint" name="author_id" padding="6" unsigned="false" nullable="false" identity="true"
+                comment="Author ID"/>
+
+        <column xsi:type="mediumtext" name="full_name" nullable="false" comment="Author Name"/>
+
+        <column xsi:type="varchar" name="living_years" length="127" comment="Living years" />
+
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Block Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Block Modification Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="author_id"/>
+        </constraint>
+
+    </table>
+
+    <table name="author_product" resource="default" engine="innodb" comment="Elogic Author to Product Relation">
+        <column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true"
+                comment="Entry ID"/>
+
+        <column xsi:type="smallint" name="author_id" padding="6" unsigned="false" nullable="false"
+                comment="Author ID"/>
+
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false"
+                comment="Product ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="AUTHOR_ID_PRODUCT_ID">
+            <column name="product_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="AUT_PRO_ID_CAT_PRO_END_ID"
+                    table="author_product" column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
