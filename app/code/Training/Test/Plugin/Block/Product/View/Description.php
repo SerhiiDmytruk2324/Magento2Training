@@ -1,6 +1,6 @@
 <?php
 
-namespace Training\Test\Block\Product\View;
+namespace Training\Test\Plugin\Block\Product\View;
 class Description extends \Magento\Catalog\Block\Product\View\Description
 {
     public function beforeToHtml(

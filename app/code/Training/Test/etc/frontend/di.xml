@@ -11,8 +11,8 @@
 <!--    <type name="Magento\Catalog\Controller\Product\View">-->
 <!--        <plugin name="training_test" type="Training\Test\Plugin\Controller\Product\View" />-->
 <!--    </type>-->
-    <type name="Magento\Catalog\Block\Product\View\Decription">
-        <plugin name="product_view_description_plugin"
-                type="Training\Test\Block\Product\View\Description" sortOrder="10"/>
+    <type name="Magento\Catalog\Block\Product\View\Description">
+        <plugin name="product-view-description-plugin"
+                type="Training\Test\Plugin\Block\Product\View\Description" sortOrder="10"/>
     </type>
 </config>
