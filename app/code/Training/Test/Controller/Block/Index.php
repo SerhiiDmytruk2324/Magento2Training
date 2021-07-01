@@ -21,6 +21,7 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
      * Index constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\Controller\Result\RawFactory $resultRawFactory
+     * @param \Magento\Framework\View\LayoutFactory $layoutFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -33,11 +34,11 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
     }
     public function execute()
     {
-//        $layoutFactory = $this->layoutFactory->create();
-//        $block = $layoutFactory->createBlock('Training\Test\Block\Test');
-//        $this->getResponse()->appendBody($block->_toHtml());
+        $layoutFactory = $this->layoutFactory->create();
+        $block = $layoutFactory->createBlock('Training\Test\Block\Test');
+        $this->getResponse()->appendBody($block->_toHtml());
+
         $resultRaw = $this->resultRawFactory->create();
-        $resultRaw->setContents('');
-        return $resultRaw;
+        return $resultRaw->setContents($block->toHtml());
     }
 }
