@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogic\HelloWorld\Controller\Elogic;
+namespace Training\Render\Controller\Layout;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -8,7 +8,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Onecolumn extends Action implements HttpGetActionInterface, HttpPostActionInterface
+class Onecolumn implements HttpGetActionInterface, HttpPostActionInterface
 {
     /**
      * @var PageFactory
@@ -21,16 +21,15 @@ class Onecolumn extends Action implements HttpGetActionInterface, HttpPostAction
      * @param PageFactory $pageFactory
      */
     public function __construct(
-        Context $context,
         PageFactory $pageFactory
     )
     {
-        parent::__construct($context);
         $this->pageFactory = $pageFactory;
     }
 
     public function execute()
     {
         return $this->pageFactory->create();
+        echo "dqdq";
     }
 }

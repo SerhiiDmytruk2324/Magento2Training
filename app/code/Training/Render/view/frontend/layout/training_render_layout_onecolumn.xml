@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <title>Qwerty Page</title>
-    </head>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="page.main.title">
-            <block class="Magento\Checkout\Block\Onepage\Success" name="checkout.success.print.button" template="Training_Render::button.phtml"/>
             <action method="setPageTitle">
-                <argument translate="true" name="title" xsi:type="string">Thank you for your Qwerty!</argument>
+                <argument name="title" xsi:type="string">My Title</argument>
             </action>
         </referenceBlock>
+<!--        <referenceBlock name="page.main.title">-->
+<!--            <block class="Magento\Checkout\Block\Onepage\Success" name="checkout.success.print.button" template="Training_Render::button.phtml"/>-->
+<!--            <action method="setPageTitle">-->
+<!--                <argument translate="true" name="title" xsi:type="string">Thank you for your Qwerty!</argument>-->
+<!--            </action>-->
+<!--        </referenceBlock>-->
     </body>
 </page>
