@@ -7,8 +7,11 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="content">
-            <block class="Training\Test\Block\Test" name="training_test" template="Training_Test::test.phtml"/>
-        </referenceContainer>
+        <referenceBlock name="content">
+            <block name="training.block.test"
+                   class="Training\Test\Block\Test"
+                   template="Training_Test::test.phtml">
+            </block>
+        </referenceBlock>
     </body>
 </page>

@@ -1,10 +1,10 @@
 <?php
 
 namespace Training\Test\Controller\Action;
-use Magento\Framework\View\Element\Template;
+
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends Template implements HttpGetActionInterface
+class Index  implements HttpGetActionInterface
 {
     /**
      * @var \Magento\Framework\Controller\Result\RawFactory
@@ -14,16 +14,16 @@ class Index extends Template implements HttpGetActionInterface
      * @var \Magento\Framework\View\LayoutFactory
      */
     private $layoutFactory;
+
     /**
+     * Index constructor.
      * @param \Magento\Framework\Controller\Result\RawFactory $resultRawFactory
      * @param \Magento\Framework\View\LayoutFactory $layoutFactory
      */
     public function __construct(
-        Template\Context $context,
         \Magento\Framework\Controller\Result\RawFactory $resultRawFactory,
-        \Magento\Framework\View\Layout $layoutFactory
+        \Magento\Framework\View\LayoutFactory $layoutFactory
     ) {
-        parent::__construct($context);
         $this->resultRawFactory = $resultRawFactory;
         $this->layoutFactory = $layoutFactory;
     }
@@ -34,6 +34,6 @@ class Index extends Template implements HttpGetActionInterface
         $block->setTemplate('test.phtml');
         /** @var \Magento\Framework\Controller\Result\Raw $resultRaw */
         $resultRaw = $this->resultRawFactory->create();
-        return $resultRaw->setContents($block->toHtml());
+        return $resultRaw->setContents($block->_toHtml());
     }
 }
