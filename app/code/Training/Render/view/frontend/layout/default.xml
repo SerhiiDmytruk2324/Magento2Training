@@ -11,6 +11,7 @@
                     <argument name="background_color" xsi:type="string">lightskyblue</argument>
                 </arguments>
             </block>
+            <referenceBlock name="testargument" remove="true"/>
         </referenceContainer>
 
     </body>
