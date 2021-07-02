@@ -7,5 +7,14 @@
                 <argument name="title" xsi:type="string">My Title</argument>
             </action>
         </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="test_form"
+                   template="Training_Render::form.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Training\Render\ViewModel\Form</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>
